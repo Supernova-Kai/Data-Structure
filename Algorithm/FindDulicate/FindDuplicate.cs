@@ -33,7 +33,7 @@ public class FindDuplicate
      * 后面只需要检查是否在缓存中已经存在，便可知道是否重复
      * 时间复杂度：最坏情况下就是没有重复元素，需要遍历完整个集合，为O(n)
      * 空间复杂度：最坏情况下就是没有重复元素，会缓存整个集合所有元素，为O(n)
-     * 这是一直以“空间换时间”的策略
+     * 这是一种以“空间换时间”的策略
      */
     public static bool ContainsDuplicate2(int[] num)
     { 
