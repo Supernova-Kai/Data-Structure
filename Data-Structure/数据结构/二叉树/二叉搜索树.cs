@@ -115,6 +115,9 @@
         return minValue;
     }
 
+    /// <summary>
+    /// 前序遍历
+    /// </summary>
     public void PreOrder()
     {
         PreOrderNode(root);
@@ -129,6 +132,9 @@
         PreOrderNode(node.Right);
     }
 
+    /// <summary>
+    /// 中序遍历
+    /// </summary>
     public void InOrder()
     {
         InOrderNode(root);
@@ -143,6 +149,9 @@
         InOrderNode(node.Right);
     }
 
+    /// <summary>
+    /// 后序遍历
+    /// </summary>
     public void PostOrder()
     {
         PostOrderNode(root);
@@ -156,5 +165,32 @@
         PostOrderNode(node.Left);
         PostOrderNode(node.Right);
         Console.Write(node.Data + " ");
+    }
+
+    /// <summary>
+    /// 层序遍历
+    /// </summary>
+    public void LevelOrder()
+    {
+        if (root == null)
+            return; // 空树直接返回
+
+        Queue<TreeNode> queue = new Queue<TreeNode>();
+        queue.Enqueue(root); // 根节点入队
+
+        while (queue.Count > 0) // 队列不为空时循环
+        {
+            TreeNode current = queue.Dequeue(); // 取出队首节点
+            Console.Write(current.Data + " "); // 访问该节点
+
+            // 将当前节点的左子节点入队（如果存在）
+            if (current.Left != null)
+                queue.Enqueue(current.Left);
+
+            // 将当前节点的右子节点入队（如果存在）
+            if (current.Right != null)
+                queue.Enqueue(current.Right);
+        }
+        Console.WriteLine();
     }
 }
